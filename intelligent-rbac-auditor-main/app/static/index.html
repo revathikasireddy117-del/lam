@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Intelligent RBAC Policy Auditor</title>
+  <link rel="stylesheet" href="/static/style.css">
+  <!-- Markdown renderer (lightweight, no build pipeline) -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+<body class="dark-theme">
+  <div class="container">
+    <header>
+      <h1>🔐 Intelligent RBAC Policy Auditor</h1>
+      <p class="subtitle">Upload a dataset, run an audit, and explore findings.</p>
+    </header>
+
+    <main class="stepper">
+      <!-- Step 1: Load Data -->
+      <section class="step" id="step-load">
+        <h2>1. Load Data</h2>
+        <button id="btn-load-sample" class="btn btn-primary">Load Sample Dataset</button>
+        <span id="load-status" class="status-text"></span>
+      </section>
+
+      <!-- Step 2: Run Audit -->
+      <section class="step" id="step-audit">
+        <h2>2. Run Audit</h2>
+        <button id="btn-run-audit" class="btn btn-primary" disabled>Run Audit</button>
+        <span id="audit-status" class="status-text"></span>
+      </section>
+
+      <!-- Step 3: View Findings -->
+      <section class="step" id="step-findings">
+        <h2>3. Findings</h2>
+        <div id="findings-container">
+          <p class="placeholder">No findings yet. Run an audit first.</p>
+        </div>
+        <!-- Collapsible Markdown Report -->
+        <details id="report-details" style="margin-top:1rem;">
+          <summary class="btn btn-secondary" style="cursor:pointer;">
+            📄 View Narrative Report
+          </summary>
+          <div id="report-content" class="report-content">
+            <p class="placeholder">Report will be loaded after audit completes.</p>
+          </div>
+        </details>
+      </section>
+
+      <!-- Step 4: Chat -->
+      <section class="step" id="step-chat">
+        <h2>4. Ask Questions</h2>
+        <div class="chat-box">
+          <input type="text" id="query-input" placeholder="e.g. Show users with Global Admin" disabled>
+          <button id="btn-query" class="btn btn-primary" disabled>Ask</button>
+        </div>
+        <div id="query-response" class="response-area"></div>
+      </section>
+    </main>
+
+    <footer>
+      <p>Portfolio project &mdash; see <a href="/docs">API docs</a> for details.</p>
+    </footer>
+  </div>
+
+  <script src="/static/script.js"></script>
+</body>
+</html>
